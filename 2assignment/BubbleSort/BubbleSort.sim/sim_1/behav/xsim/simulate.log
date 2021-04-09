@@ -1,0 +1,6 @@
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+Bubblesort test start
+Bubblesort test start
+Congradulation it works !!!!
+$finish called at time : 3430 ns : File "/home/cx872/Documents/CS_3220/gt-cs3220-spr21.github.io/assignment2_files/test.v" Line 131

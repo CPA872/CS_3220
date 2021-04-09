@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/cx872/Documents/CS_3220/gt-cs3220-spr21.github.io/assignment2_files/bubblesort.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bubblesort
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/cx872/Documents/CS_3220/gt-cs3220-spr21.github.io/assignment2_files/test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test

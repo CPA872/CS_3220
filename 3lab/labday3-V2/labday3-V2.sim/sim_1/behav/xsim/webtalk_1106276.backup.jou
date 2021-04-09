@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Mar 25 20:02:01 2021
+# Process ID: 1106276
+# Current directory: /home/cx872/Documents/vivado_projects/labday3-V2/labday3-V2.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/cx872/Documents/vivado_projects/labday3-V2/labday3-V2.sim/sim_1/behav/xsim/xsim.dir/tb_project3_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/cx872/Documents/vivado_projects/labday3-V2/labday3-V2.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/cx872/Documents/vivado_projects/labday3-V2/labday3-V2.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/cx872/Documents/vivado_projects/labday3-V2/labday3-V2.sim/sim_1/behav/xsim/xsim.dir/tb_project3_behav/webtalk/xsim_webtalk.tcl -notrace

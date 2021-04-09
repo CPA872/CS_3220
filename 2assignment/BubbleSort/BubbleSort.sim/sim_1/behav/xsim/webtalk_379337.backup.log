@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed Feb 10 21:11:39 2021
+# Process ID: 379337
+# Current directory: /home/cx872/Documents/vivado_projects/3220-assignment-2/BubbleSort/BubbleSort.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/cx872/Documents/vivado_projects/3220-assignment-2/BubbleSort/BubbleSort.sim/sim_1/behav/xsim/xsim.dir/test_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/cx872/Documents/vivado_projects/3220-assignment-2/BubbleSort/BubbleSort.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/cx872/Documents/vivado_projects/3220-assignment-2/BubbleSort/BubbleSort.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/cx872/Documents/vivado_projects/3220-assignment-2/BubbleSort/BubbleSort.sim/sim_1/behav/xsim/xsim.dir/test_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/home/cx872/Documents/vivado_projects/3220-assignment-2/BubbleSort/BubbleSort.sim/sim_1/behav/xsim/xsim.dir/test_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Wed Feb 10 21:11:41 2021. For additional details about this file, please refer to the WebTalk help file at /tools/Xilinx/Vivado/2019.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Wed Feb 10 21:11:41 2021...

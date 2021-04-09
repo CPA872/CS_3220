@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_project3_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_project3" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="15270001fs"></ZoomEndTime>
+      <Cursor1Time time="3500000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="242"></NameColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wvobject type="logic" fp_name="/tb_project3/CLOCK_50">
+      <obj_property name="ElementShortName">CLOCK_50</obj_property>
+      <obj_property name="ObjectShortName">CLOCK_50</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_project3/RESET_N">
+      <obj_property name="ElementShortName">RESET_N</obj_property>
+      <obj_property name="ObjectShortName">RESET_N</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/KEY">
+      <obj_property name="ElementShortName">KEY[3:0]</obj_property>
+      <obj_property name="ObjectShortName">KEY[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/HEX0">
+      <obj_property name="ElementShortName">HEX0[6:0]</obj_property>
+      <obj_property name="ObjectShortName">HEX0[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/HEX1">
+      <obj_property name="ElementShortName">HEX1[6:0]</obj_property>
+      <obj_property name="ObjectShortName">HEX1[6:0]</obj_property>
+      <obj_property name="CustomSignalColor">#D2691E</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/LEDR">
+      <obj_property name="ElementShortName">LEDR[9:0]</obj_property>
+      <obj_property name="ObjectShortName">LEDR[9:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/i">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_FE_stage/PC_FE_latch">
+      <obj_property name="ElementShortName">PC_FE_latch[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_FE_latch[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/PC_DE">
+      <obj_property name="ElementShortName">PC_DE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_DE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/PC_AGEX">
+      <obj_property name="ElementShortName">PC_AGEX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_AGEX[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/PC_MEM">
+      <obj_property name="ElementShortName">PC_MEM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_MEM[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/PC_WB">
+      <obj_property name="ElementShortName">PC_WB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_WB[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_FE_stage/inst_FE">
+      <obj_property name="ElementShortName">inst_FE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_FE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/inst_DE">
+      <obj_property name="ElementShortName">inst_DE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_DE[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/inst_AGEX">
+      <obj_property name="ElementShortName">inst_AGEX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_AGEX[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/inst_MEM">
+      <obj_property name="ElementShortName">inst_MEM[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_MEM[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/inst_WB">
+      <obj_property name="ElementShortName">inst_WB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_WB[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_project3/myprj/my_clock/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_project3/myprj/my_clock/locked">
+      <obj_property name="ElementShortName">locked</obj_property>
+      <obj_property name="ObjectShortName">locked</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_project3/myprj/my_clock/clk_out1">
+      <obj_property name="ElementShortName">clk_out1</obj_property>
+      <obj_property name="ObjectShortName">clk_out1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/tb_project3/myprj/my_clock/clk_in1">
+      <obj_property name="ElementShortName">clk_in1</obj_property>
+      <obj_property name="ObjectShortName">clk_in1</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/regs">
+      <obj_property name="ElementShortName">regs[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">regs[15:0][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group114">
+      <obj_property name="label">FE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_FE_stage/PC_FE_latch">
+         <obj_property name="ElementShortName">PC_FE_latch[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_FE_latch[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_FE_stage/inst_FE">
+         <obj_property name="ElementShortName">inst_FE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_FE[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_FE_stage/jmp_br_stall_FE">
+         <obj_property name="ElementShortName">jmp_br_stall_FE</obj_property>
+         <obj_property name="ObjectShortName">jmp_br_stall_FE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_FE_stage/dependency_stall_FE">
+         <obj_property name="ElementShortName">dependency_stall_FE</obj_property>
+         <obj_property name="ObjectShortName">dependency_stall_FE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_FE_stage/stall_pipe">
+         <obj_property name="ElementShortName">stall_pipe</obj_property>
+         <obj_property name="ObjectShortName">stall_pipe</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_FE_stage/br_cond_from_agex_FE">
+         <obj_property name="ElementShortName">br_cond_from_agex_FE</obj_property>
+         <obj_property name="ObjectShortName">br_cond_from_agex_FE</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_FE_stage/pctarget_from_agex_FE">
+         <obj_property name="ElementShortName">pctarget_from_agex_FE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">pctarget_from_agex_FE[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_FE_stage/pcplus_FE">
+         <obj_property name="ElementShortName">pcplus_FE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">pcplus_FE[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group74">
+      <obj_property name="label">DE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/PC_DE">
+         <obj_property name="ElementShortName">PC_DE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_DE[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/inst_DE">
+         <obj_property name="ElementShortName">inst_DE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_DE[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/op1_DE">
+         <obj_property name="ElementShortName">op1_DE[5:0]</obj_property>
+         <obj_property name="ObjectShortName">op1_DE[5:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/op2_DE">
+         <obj_property name="ElementShortName">op2_DE[7:0]</obj_property>
+         <obj_property name="ObjectShortName">op2_DE[7:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/rs_DE">
+         <obj_property name="ElementShortName">rs_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rs_DE[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/rd_DE">
+         <obj_property name="ElementShortName">rd_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_DE[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/rt_DE">
+         <obj_property name="ElementShortName">rt_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">rt_DE[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/is_br_DE">
+         <obj_property name="ElementShortName">is_br_DE</obj_property>
+         <obj_property name="ObjectShortName">is_br_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/is_jmp_DE">
+         <obj_property name="ElementShortName">is_jmp_DE</obj_property>
+         <obj_property name="ObjectShortName">is_jmp_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/is_alu_DE">
+         <obj_property name="ElementShortName">is_alu_DE</obj_property>
+         <obj_property name="ObjectShortName">is_alu_DE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/is_alui_DE">
+         <obj_property name="ElementShortName">is_alui_DE</obj_property>
+         <obj_property name="ObjectShortName">is_alui_DE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/read_rs_DE">
+         <obj_property name="ElementShortName">read_rs_DE</obj_property>
+         <obj_property name="ObjectShortName">read_rs_DE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/read_rt_DE">
+         <obj_property name="ElementShortName">read_rt_DE</obj_property>
+         <obj_property name="ObjectShortName">read_rt_DE</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/rd_mem_DE">
+         <obj_property name="ElementShortName">rd_mem_DE</obj_property>
+         <obj_property name="ObjectShortName">rd_mem_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_mem_DE">
+         <obj_property name="ElementShortName">wr_mem_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_mem_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_reg_DE">
+         <obj_property name="ElementShortName">wr_reg_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/regval1_DE">
+         <obj_property name="ElementShortName">regval1_DE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval1_DE[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/regval2_DE">
+         <obj_property name="ElementShortName">regval2_DE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval2_DE[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/imm_DE">
+         <obj_property name="ElementShortName">imm_DE[15:0]</obj_property>
+         <obj_property name="ObjectShortName">imm_DE[15:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/sxt_imm_DE">
+         <obj_property name="ElementShortName">sxt_imm_DE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sxt_imm_DE[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_reg_from_wb_DE">
+         <obj_property name="ElementShortName">wr_reg_from_wb_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_from_wb_DE</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/wr_reg_val_from_wb_DE">
+         <obj_property name="ElementShortName">wr_reg_val_from_wb_DE[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_val_from_wb_DE[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/wregno_from_wb_DE">
+         <obj_property name="ElementShortName">wregno_from_wb_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_from_wb_DE[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/wregno_DE">
+         <obj_property name="ElementShortName">wregno_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_DE[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFA500</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_1rd_0rs_from_agex_DE">
+         <obj_property name="ElementShortName">wr_1rd_0rs_from_agex_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_1rd_0rs_from_agex_DE</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_1rd_0rs_from_mem_DE">
+         <obj_property name="ElementShortName">wr_1rd_0rs_from_mem_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_1rd_0rs_from_mem_DE</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_reg_from_agex_DE">
+         <obj_property name="ElementShortName">wr_reg_from_agex_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_from_agex_DE</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/wregno_from_agex_DE">
+         <obj_property name="ElementShortName">wregno_from_agex_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_from_agex_DE[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/wr_reg_from_mem_DE">
+         <obj_property name="ElementShortName">wr_reg_from_mem_DE</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_from_mem_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_DE_stage/wregno_from_mem_DE">
+         <obj_property name="ElementShortName">wregno_from_mem_DE[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_from_mem_DE[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/AGEX_rs_hazard_DE">
+         <obj_property name="ElementShortName">AGEX_rs_hazard_DE</obj_property>
+         <obj_property name="ObjectShortName">AGEX_rs_hazard_DE</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/AGEX_rt_hazard_DE">
+         <obj_property name="ElementShortName">AGEX_rt_hazard_DE</obj_property>
+         <obj_property name="ObjectShortName">AGEX_rt_hazard_DE</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/MEM_rs_hazard_DE">
+         <obj_property name="ElementShortName">MEM_rs_hazard_DE</obj_property>
+         <obj_property name="ObjectShortName">MEM_rs_hazard_DE</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/MEM_rt_hazard_DE">
+         <obj_property name="ElementShortName">MEM_rt_hazard_DE</obj_property>
+         <obj_property name="ObjectShortName">MEM_rt_hazard_DE</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/AGEX_hazard_DE">
+         <obj_property name="ElementShortName">AGEX_hazard_DE</obj_property>
+         <obj_property name="ObjectShortName">AGEX_hazard_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/MEM_hazard_DE">
+         <obj_property name="ElementShortName">MEM_hazard_DE</obj_property>
+         <obj_property name="ObjectShortName">MEM_hazard_DE</obj_property>
+         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/dependency_stall_DE">
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="ElementShortName">dependency_stall_DE</obj_property>
+         <obj_property name="ObjectShortName">dependency_stall_DE</obj_property>
+         <obj_property name="label">dependency_stall_DE</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/jmp_br_stall_DE">
+         <obj_property name="ElementShortName">jmp_br_stall_DE</obj_property>
+         <obj_property name="ObjectShortName">jmp_br_stall_DE</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_DE_stage/stall_DE">
+         <obj_property name="ElementShortName">stall_DE</obj_property>
+         <obj_property name="ObjectShortName">stall_DE</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group75">
+      <obj_property name="label">AGEX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/PC_AGEX">
+         <obj_property name="ElementShortName">PC_AGEX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_AGEX[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/inst_AGEX">
+         <obj_property name="ElementShortName">inst_AGEX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_AGEX[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_AGEX_stage/is_br_AGEX">
+         <obj_property name="ElementShortName">is_br_AGEX</obj_property>
+         <obj_property name="ObjectShortName">is_br_AGEX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_AGEX_stage/br_cond_AGEX">
+         <obj_property name="ElementShortName">br_cond_AGEX</obj_property>
+         <obj_property name="ObjectShortName">br_cond_AGEX</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_AGEX_stage/is_jmp_AGEX">
+         <obj_property name="ElementShortName">is_jmp_AGEX</obj_property>
+         <obj_property name="ObjectShortName">is_jmp_AGEX</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_AGEX_stage/rd_mem_AGEX">
+         <obj_property name="ElementShortName">rd_mem_AGEX</obj_property>
+         <obj_property name="ObjectShortName">rd_mem_AGEX</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_AGEX_stage/wr_mem_AGEX">
+         <obj_property name="ElementShortName">wr_mem_AGEX</obj_property>
+         <obj_property name="ObjectShortName">wr_mem_AGEX</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_AGEX_stage/wr_reg_AGEX">
+         <obj_property name="ElementShortName">wr_reg_AGEX</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_AGEX</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/regval1_AGEX">
+         <obj_property name="ElementShortName">regval1_AGEX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval1_AGEX[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/regval2_AGEX">
+         <obj_property name="ElementShortName">regval2_AGEX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval2_AGEX[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/sxt_imm_AGEX">
+         <obj_property name="ElementShortName">sxt_imm_AGEX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">sxt_imm_AGEX[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/aluout_AGEX">
+         <obj_property name="ElementShortName">aluout_AGEX[31:0]</obj_property>
+         <obj_property name="ObjectShortName">aluout_AGEX[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/wregno_AGEX">
+         <obj_property name="ElementShortName">wregno_AGEX[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_AGEX[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group73">
+      <obj_property name="label">MEM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/PC_MEM">
+         <obj_property name="ElementShortName">PC_MEM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_MEM[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/inst_MEM">
+         <obj_property name="ElementShortName">inst_MEM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_MEM[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/memaddr_MEM">
+         <obj_property name="ElementShortName">memaddr_MEM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">memaddr_MEM[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/aluout_MEM">
+         <obj_property name="ElementShortName">aluout_MEM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">aluout_MEM[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/rd_val_MEM">
+         <obj_property name="ElementShortName">rd_val_MEM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">rd_val_MEM[31:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_MEM_stage/rd_mem_MEM">
+         <obj_property name="ElementShortName">rd_mem_MEM</obj_property>
+         <obj_property name="ObjectShortName">rd_mem_MEM</obj_property>
+         <obj_property name="CustomSignalColor">#00FF00</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/regval2_MEM">
+         <obj_property name="ElementShortName">regval2_MEM[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval2_MEM[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_MEM_stage/wr_mem_MEM">
+         <obj_property name="ElementShortName">wr_mem_MEM</obj_property>
+         <obj_property name="ObjectShortName">wr_mem_MEM</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_MEM_stage/wr_reg_MEM">
+         <obj_property name="ElementShortName">wr_reg_MEM</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_MEM</obj_property>
+         <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_MEM_stage/wregno_MEM">
+         <obj_property name="ElementShortName">wregno_MEM[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_MEM[3:0]</obj_property>
+         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group76">
+      <obj_property name="label">WB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/PC_WB">
+         <obj_property name="ElementShortName">PC_WB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">PC_WB[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/inst_WB">
+         <obj_property name="ElementShortName">inst_WB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_WB[31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FFD700</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_WB_stage/wr_mem_WB">
+         <obj_property name="ElementShortName">wr_mem_WB</obj_property>
+         <obj_property name="ObjectShortName">wr_mem_WB</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_project3/myprj/my_WB_stage/wr_reg_WB">
+         <obj_property name="ElementShortName">wr_reg_WB</obj_property>
+         <obj_property name="ObjectShortName">wr_reg_WB</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/regval_WB">
+         <obj_property name="ElementShortName">regval_WB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval_WB[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/regval2_WB">
+         <obj_property name="ElementShortName">regval2_WB[31:0]</obj_property>
+         <obj_property name="ObjectShortName">regval2_WB[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_project3/myprj/my_WB_stage/wregno_WB">
+         <obj_property name="ElementShortName">wregno_WB[3:0]</obj_property>
+         <obj_property name="ObjectShortName">wregno_WB[3:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/tb_project3/myprj/my_AGEX_stage/aluout_AGEX">
+      <obj_property name="ElementShortName">aluout_AGEX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">aluout_AGEX[31:0]</obj_property>
+   </wvobject>
+</wave_config>

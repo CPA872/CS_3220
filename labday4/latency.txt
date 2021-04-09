@@ -1,0 +1,98 @@
+CONCLUSION:
+Among the 4 cases, only the #pragma HLS ARRAY_PARTITION variable=linebuf dim=1 complete at line 130 hugely slowed down the performance. 
+
+
+DEFAULT CASE
+Report time       : Sun 28 Mar 2021 07:20:22 PM EDT.  DEFAULT
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|          |          |             Latency(Clock Cycles)             |              Interval(Clock Cycles)           | Total Execution Time |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+    (Clock Cycles)    +
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |                      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
+|   Verilog|      Pass|          36070|          36070|          36070|             NA|             NA|             NA|                 36070|
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+
+
+
+
+Commented out LINE 130
+#pragma HLS ARRAY_PARTITION variable=linebuf dim=1 complete
+Function: Partitions an array into smaller arrays or individual elements.
+
+Report time       : Sun 28 Mar 2021 07:29:56 PM EDT.
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|          |          |             Latency(Clock Cycles)             |              Interval(Clock Cycles)           | Total Execution Time |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+    (Clock Cycles)    +
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |                      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
+|   Verilog|      Pass|         281875|         281875|         281875|             NA|             NA|             NA|                281875|
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+
+
+
+LINE 141
+#pragma HLS PIPELINE
+Function: reduces the initiation interval for a function or loop by allowing the concurrent execution of operations.
+Report time       : Sun 28 Mar 2021 07:32:25 PM EDT.
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|          |          |             Latency(Clock Cycles)             |              Interval(Clock Cycles)           | Total Execution Time |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+    (Clock Cycles)    +
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |                      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
+|   Verilog|      Pass|          36070|          36070|          36070|             NA|             NA|             NA|                 36070|
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+
+
+
+
+
+
+
+LINE 158
+#pragma HLS DEPENDENCE variable=linebuf inter false
+Function: provide additional information that can overcome loop-carry dependencies and allow loops to be pipelined (or pipelined with lower intervals).
+Report time       : Sun 28 Mar 2021 07:34:23 PM EDT.
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|          |          |             Latency(Clock Cycles)             |              Interval(Clock Cycles)           | Total Execution Time |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+    (Clock Cycles)    +
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |                      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
+|   Verilog|      Pass|          36070|          36070|          36070|             NA|             NA|             NA|                 36070|
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+
+
+
+
+
+LINE 159
+#pragma HLS PIPELINE
+Function: same as above PIPELINE
+Report time       : Sun 28 Mar 2021 07:36:51 PM EDT.
+Solution          : solution1.
+Simulation tool   : xsim.
+
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|          |          |             Latency(Clock Cycles)             |              Interval(Clock Cycles)           | Total Execution Time |
++   RTL    +  Status  +-----------------------------------------------+-----------------------------------------------+    (Clock Cycles)    +
+|          |          |      min      |      avg      |      max      |      min      |      avg      |      max      |                      |
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+|      VHDL|        NA|             NA|             NA|             NA|             NA|             NA|             NA|                    NA|
+|   Verilog|      Pass|          36070|          36070|          36070|             NA|             NA|             NA|                 36070|
++----------+----------+-----------------------------------------------+-----------------------------------------------+----------------------+
+
