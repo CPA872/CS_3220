@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date                      : Sun Mar 28 18:41:18 2021
+| Date                      : Wed Apr 14 16:22:15 2021
 | Host                      : T460p running 64-bit Ubuntu 20.04.2 LTS
 | Command                   : report_io -file project3_frame_io_placed.rpt
 | Design                    : project3_frame

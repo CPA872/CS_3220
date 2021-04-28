@@ -29,10 +29,14 @@ module MEM_STAGE(
     wire [`DBITS-1:0]           PC_MEM;
     wire [`DBITS-1:0]           aluout_MEM;  // memaddr computed in AGEX
     wire [`DBITS-1:0]           regval2_MEM; // register to be stored in mem, RT(regval2) of SW
+    wire [`DBITS-1:0]           fwd_val_MEM; // register to be forwarded back to DE
   
     wire rd_mem_MEM;
     wire wr_mem_MEM;
     wire wr_reg_MEM;
+
+    wire br_cond_MEM;
+    wire [`DBITS-1:0]           pctarget_MEM;
 
 //  ========================================================================
 //  For stall detection (stalls one cycle)
@@ -61,8 +65,9 @@ module MEM_STAGE(
     assign MEM_latch_out = MEM_latch; 
 
     // ========== NEW CODE HERE
-    assign regval_MEM = rd_val_MEM;  // regval_MEM <-- value read from memory
-    // assign regval2_MEM = aluout_MEM; // regval2_MEM <-- ALU result
+    assign regval_MEM  = rd_val_MEM;  // regval_MEM <-- value read from memory
+    assign fwd_val_MEM = rd_mem_MEM ? rd_val_MEM : aluout_MEM;  // if lw forward mem val, else aluout
+
 
     assign {
         inst_MEM,
@@ -73,17 +78,13 @@ module MEM_STAGE(
         wr_mem_MEM,
         wr_reg_MEM,
         wregno_MEM,
-
-// ===== stall detection =========
+        br_cond_MEM,
+        pctarget_MEM,
         wr_1rd_0rs_MEM,
-// ==========================
-
         // more signals might need
         bus_canary_MEM
     } = from_AGEX_latch;  
  
-
-   
     assign MEM_latch_contents = {
             inst_MEM,
             PC_MEM,
@@ -95,15 +96,17 @@ module MEM_STAGE(
             wregno_MEM,    
             // more signals might need    
             aluout_MEM,
+            br_cond_MEM,
+            pctarget_MEM,
 
             bus_canary_MEM                   
     };
 
-
     assign from_MEM_to_DE = {
         wr_reg_MEM,
         wr_1rd_0rs_MEM,
-        wregno_MEM
+        wregno_MEM,
+        fwd_val_MEM
     };
  
     always @ (posedge clk or posedge reset) begin

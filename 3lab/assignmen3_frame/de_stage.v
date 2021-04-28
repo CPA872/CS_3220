@@ -43,19 +43,15 @@ module DE_STAGE(
     wire [`DE_latch_WIDTH-1:0]   DE_latch_contents; 
     wire [`BUS_CANARY_WIDTH-1:0] bus_canary_DE; 
 
-    // =========================================================
-    // values from MEM stage
+// =========================================================
+// values from MEM stage
     wire                         wr_reg_from_wb_DE;
     wire [`DBITS-1:0]            wr_reg_val_from_wb_DE;
     wire [`REGNOBITS-1:0]        wregno_from_wb_DE;
     wire [`BUS_CANARY_WIDTH-1:0] bus_canary_from_wb_DE;
-    // =========================================================
+// =========================================================
 
-/* THREE QUESTIONS for hazard detection (both AGEX and MEM hazard)
- * 1. is reading from register?
- * 2. reading from Rt or Rs?
- * 3. is the same register being written to?
-*/
+
 // ============= Stall Control Signals =====================
     wire                  AGEX_rs_hazard_DE;
     wire                  AGEX_rt_hazard_DE;
@@ -64,6 +60,8 @@ module DE_STAGE(
     wire                  WB_rs_hazard_DE;
     wire                  WB_rt_hazard_DE;
 
+    wire                  AGEX_rd_mem_DE;
+
     wire                  AGEX_hazard_DE;
     wire                  MEM_hazard_DE;
     wire                  WB_hazard_DE;
@@ -71,7 +69,7 @@ module DE_STAGE(
     wire                  dependency_stall_DE;
     wire                  jmp_br_stall_DE;
     wire                  stall_DE;
-    reg[1:0]              stall_cycles;
+    reg [1:0]             stall_cycles;
 
     wire                  read_rs_DE;
     wire                  read_rt_DE;
@@ -88,6 +86,22 @@ module DE_STAGE(
     wire                  wr_1rd_0rs_from_mem_DE;  
     wire [`REGNOBITS-1:0] wregno_from_mem_DE;
 // =========================================================
+
+
+// ============== Forwarding control signals ===============
+    wire [`DBITS - 1:0]   aluout_from_agex_DE;
+    wire [`DBITS - 1:0]   fwdval_from_mem_DE;  // if lw : rdval_mem  else aluout_mem
+
+    wire                  reg1_agex_fwd_DE;
+    wire                  reg2_agex_fwd_DE;
+    wire                  reg1_mem_fwd_DE;
+    wire                  reg2_mem_fwd_DE;
+// =========================================================
+
+    wire                        pc_pred_taken_DE;       // taken prediction from BTB
+    wire [`DBITS-1:0]           pc_pred_DE;             // predicted PC from BTB
+    wire                        flush_DE;
+
 
     // **TODO: Complete the rest of the pipeline 
 
@@ -106,7 +120,7 @@ module DE_STAGE(
     assign rd_mem_DE  = (op1_DE == 6'b010010); // LW
     
     assign wr_mem_DE  = (op1_DE == 6'b011010); // SW
-    assign wr_reg_DE  = !is_br_DE && !wr_mem_DE && PC_DE != 32'h00000000;  // is NOT branch, SW, 
+    assign wr_reg_DE  = !is_br_DE && !wr_mem_DE && (PC_DE != 32'h00000000);  // is NOT branch, SW, 
 
     // ALU writes to RD, all other wreg instructions writes to RT
     assign wregno_DE  = (op1_DE == 6'b000000) ? rd_DE : rt_DE;
@@ -115,33 +129,49 @@ module DE_STAGE(
     assign is_alui_DE = (op1_DE == 6'b100000 || op1_DE == 6'b100100 || op1_DE == 6'b100101 || op1_DE == 6'b100110);
     //                            ADDi                ANDi                  ORi                  XORi
     
-    assign regval1_DE = regs[rs_DE];  // ALUi does RT = RS + IMM   !!!!!!
-    assign regval2_DE = regs[rt_DE];
-    assign sxt_imm_DE = { {16{imm_DE[15]}}, imm_DE };
 
-    assign wr_1rd_0rt_DE  = (op1_DE == `OP1_ALUR);
-
-//  ================== stall logic =================
+//  ================== hazard logic ==============================================================
     assign read_rt_DE = is_alu_DE || is_br_DE || is_jmp_DE || wr_mem_DE;
     assign read_rs_DE = is_alu_DE || is_alui_DE || is_br_DE || wr_mem_DE || rd_mem_DE;
 
-    assign AGEX_rs_hazard_DE = read_rs_DE && wr_reg_from_agex_DE && (rs_DE == wregno_from_agex_DE);
-    assign AGEX_rt_hazard_DE = read_rt_DE && wr_reg_from_agex_DE && (rt_DE == wregno_from_agex_DE);
-    assign AGEX_hazard_DE    = AGEX_rs_hazard_DE || AGEX_rt_hazard_DE;
+    // hazard: data desired is in AGEX stage
+    assign AGEX_rs_hazard_DE   = read_rs_DE && wr_reg_from_agex_DE && (rs_DE == wregno_from_agex_DE);
+    assign AGEX_rt_hazard_DE   = read_rt_DE && wr_reg_from_agex_DE && (rt_DE == wregno_from_agex_DE);
+    assign AGEX_hazard_DE      = AGEX_rs_hazard_DE || AGEX_rt_hazard_DE;
 
-    assign MEM_rs_hazard_DE = read_rs_DE && wr_reg_from_mem_DE && (rs_DE == wregno_from_mem_DE);
-    assign MEM_rt_hazard_DE = read_rt_DE && wr_reg_from_mem_DE && (rt_DE == wregno_from_mem_DE);
-    assign MEM_hazard_DE    = MEM_rs_hazard_DE || MEM_rt_hazard_DE;
+    // hazard: data desired is in MEM stage
+    assign MEM_rs_hazard_DE    = read_rs_DE && wr_reg_from_mem_DE && (rs_DE == wregno_from_mem_DE);
+    assign MEM_rt_hazard_DE    = read_rt_DE && wr_reg_from_mem_DE && (rt_DE == wregno_from_mem_DE);
+    assign MEM_hazard_DE       = MEM_rs_hazard_DE || MEM_rt_hazard_DE;
+//  ============================================================================================
 
-    // assign WB_rs_hazard_DE = read_rs_DE && wr_reg_from_wb_DE && (rs_DE == wregno_from_wb_DE);
-    // assign WB_rt_hazard_DE = read_rt_DE && wr_reg_from_wb_DE && (rt_DE == wregno_from_wb_DE);
-    // assign WB_hazard_DE    = WB_rs_hazard_DE || WB_rt_hazard_DE;
 
-    assign dependency_stall_DE = AGEX_hazard_DE || MEM_hazard_DE;
-    assign jmp_br_stall_DE     = is_br_DE || is_jmp_DE;
-    assign stall_DE            = AGEX_hazard_DE || MEM_hazard_DE || is_br_DE || is_jmp_DE;
+//  ================ forwarding logic ==========================================================
+    assign reg1_agex_fwd_DE = AGEX_rs_hazard_DE;
+    assign reg2_agex_fwd_DE = AGEX_rt_hazard_DE;
+    assign reg1_mem_fwd_DE  = MEM_rs_hazard_DE;
+    assign reg2_mem_fwd_DE  = MEM_rt_hazard_DE; 
 
-//  ================== ========== =================
+    assign regval1_DE = reg1_agex_fwd_DE ? aluout_from_agex_DE
+                                : reg1_mem_fwd_DE ? fwdval_from_mem_DE
+                                : regs[rs_DE];  
+
+    assign regval2_DE = reg2_agex_fwd_DE ? aluout_from_agex_DE 
+                                : reg2_mem_fwd_DE ? fwdval_from_mem_DE
+                                : regs[rt_DE];
+//  ==============================================================================================
+
+
+    // Now the only dependency stall is having a LW instruction immediately preceding
+    assign dependency_stall_DE = AGEX_hazard_DE && AGEX_rd_mem_DE;
+    assign jmp_br_stall_DE     = 0; //is_br_DE || is_jmp_DE;
+    assign stall_DE            = jmp_br_stall_DE;
+
+
+// ========  Register value assignment: to be fed into ALU as A_input and B_input
+
+    assign sxt_imm_DE = { {16{imm_DE[15]}}, imm_DE };
+    assign wr_1rd_0rt_DE  = (op1_DE == `OP1_ALUR);  // not used
 
     // assign wire to send the contents of DE latch to other pipeline stages  
     assign DE_latch_out = DE_latch; 
@@ -149,14 +179,18 @@ module DE_STAGE(
     assign {
         wr_reg_from_agex_DE,
         wr_1rd_0rs_from_agex_DE,  
-        wregno_from_agex_DE
+        wregno_from_agex_DE,
+        aluout_from_agex_DE,
+        AGEX_rd_mem_DE,
+        flush_DE
     } = from_AGEX_to_DE;
 
 
     assign {
         wr_reg_from_mem_DE,
         wr_1rd_0rs_from_mem_DE,  
-        wregno_from_mem_DE
+        wregno_from_mem_DE,
+        fwdval_from_mem_DE
     } = from_MEM_to_DE;
 
 
@@ -173,7 +207,6 @@ module DE_STAGE(
         jmp_br_stall_DE
     };
         
-
     // Sign extension example 
     SXT mysxt (.IN(imm_DE), .OUT(sxt_imm_DE));
   
@@ -182,6 +215,8 @@ module DE_STAGE(
             inst_DE,
             PC_DE, 
             pcplus_DE,
+            pc_pred_taken_DE,
+            pc_pred_DE,
             bus_canary_DE 
     } = from_FE_latch;  // based on the contents of the latch, you can decode the content 
 
@@ -200,13 +235,15 @@ module DE_STAGE(
             wr_mem_DE,
             wr_reg_DE,
             wregno_DE,
+            pc_pred_taken_DE,
+            pc_pred_DE,
 
             // more signals might need
             bus_canary_DE 
     }; 
     
     always @ (negedge clk or posedge reset) begin
-        if(reset) begin
+        if (reset) begin
             regs[0]  <= {`DBITS{1'b0}};
             regs[1]  <= {`DBITS{1'b0}};
             regs[2]  <= {`DBITS{1'b0}};
@@ -224,23 +261,24 @@ module DE_STAGE(
             regs[14] <= {`DBITS{1'b0}};
             regs[15] <= {`DBITS{1'b0}};
         end
-        else if (wr_reg_from_wb_DE) begin  // write value back to register HERE
+        else if (wr_reg_from_wb_DE) begin  // write value back to register
             regs[wregno_from_wb_DE] <= wr_reg_val_from_wb_DE;
         end
-        
-    // need to complete register write 
-    // else if ... 
     end
 
+
     always @ (posedge clk or posedge reset) begin
-        if (reset) begin
+        if (reset || flush_DE) begin
             DE_latch <= {`DE_latch_WIDTH{1'b0}};
             // might need more code 
-        end else if (dependency_stall_DE) begin
+        end 
+        else if (dependency_stall_DE) begin
             DE_latch <= {`DE_latch_WIDTH{1'b0}};
-        end else if (is_jmp_DE || is_br_DE) begin  // need to pass instructions if this is a jump or branch
+        end 
+        else if (jmp_br_stall_DE) begin  // need to pass instructions if this is a jump or branch
             DE_latch <= DE_latch_contents;
-        end else begin
+        end 
+        else begin
             // need to complete. e.g.) stall? 
             DE_latch <= DE_latch_contents;
         end

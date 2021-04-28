@@ -1,0 +1,17 @@
+#
+# An unexpected error has occurred (6)
+#
+Stack:
+/lib/x86_64-linux-gnu/libc.so.6(+0x46210) [0x7f9020820210]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0xcb) [0x7f902082018b]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x12b) [0x7f90207ff859]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/Ubuntu/libstdc++.so.6(_ZN9__gnu_cxx27__verbose_terminate_handlerEv+0x15d) [0x7f9020c9a33d]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/Ubuntu/libstdc++.so.6(+0x8e316) [0x7f9020c98316]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/Ubuntu/libstdc++.so.6(+0x8e361) [0x7f9020c98361]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/Ubuntu/libstdc++.so.6(+0x8ee2f) [0x7f9020c98e2f]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/librdi_wavedata.so(SG_Model::Model::getValue(SG_Model::WVDataObject const*, long long, SimBridge::Radix const&) const+0xcb) [0x7f8fdd2197fb]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/librdi_wavedata.so(WaveViewer::WVWaveformModel::getWaveformTooltip(SG_Model::WVDataObject const*, long long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x236) [0x7f8fdd2ba6c6]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/librdi_wavedata.so(WaveViewer::WVWaveformPanel::getWaveformTooltip[abi:cxx11]()+0xfd) [0x7f8fdd2c39fd]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/librdi_wavedata.so(WVExecutive::getTooltipTextDelayed[abi:cxx11]() const+0x77) [0x7f8fdd28e237]
+/tools/Xilinx/Vivado/2020.2/lib/lnx64.o/librdi_wavedata.so(Java_ui_views_waveform_waveformi_WVExecutive_1getTooltipTextDelayed+0x40) [0x7f8fdd2e7bd0]
+[0x7f8fbb5bf174]

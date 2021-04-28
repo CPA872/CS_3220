@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Sun Mar 28 18:41:18 2021
+| Date         : Wed Apr 14 16:22:16 2021
 | Host         : T460p running 64-bit Ubuntu 20.04.2 LTS
 | Command      : report_control_sets -verbose -file project3_frame_control_sets_placed.rpt
 | Design       : project3_frame
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    85 |
-|    Minimum number of control sets                        |    85 |
+| Total control sets                                       |    93 |
+|    Minimum number of control sets                        |    93 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    11 |
+| Unused register locations in slices containing registers |    16 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,7 +39,7 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    85 |
+| Total control sets |    93 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
@@ -47,7 +47,7 @@ Table of Contents
 | >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |    83 |
+| >= 16              |    91 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -59,10 +59,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |             391 |          198 |
+| No           | No                    | Yes                    |             530 |          248 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |             622 |          298 |
+| Yes          | No                    | Yes                    |             910 |          399 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,91 +73,99 @@ Table of Contents
 +-------------------------+-------------------------------------------+-------------------+------------------+----------------+--------------+
 |       Clock Signal      |               Enable Signal               |  Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +-------------------------+-------------------------------------------+-------------------+------------------+----------------+--------------+
-|  my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[41]_1[0]       | my_DE_stage/AR[0] |                2 |              8 |         4.00 |
-|  my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[41]_0[0]       | my_DE_stage/AR[0] |                2 |             10 |         5.00 |
+|  my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[74]_1[0]       | my_DE_stage/AR[0] |                5 |              8 |         1.60 |
+|  my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[74]_0[0]       | my_DE_stage/AR[0] |                8 |             10 |         1.25 |
 |  my_clock/inst/clk_out1 | my_FE_stage/PC_FE_latch[31]_i_1_n_0       | my_DE_stage/AR[0] |               10 |             31 |         3.10 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_9[0]       | my_DE_stage/AR[0] |               14 |             32 |         2.29 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/E[0]                         | my_DE_stage/AR[0] |               17 |             32 |         1.88 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_10[0]      | my_DE_stage/AR[0] |               14 |             32 |         2.29 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_0[0]       | my_DE_stage/AR[0] |               16 |             32 |         2.00 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_1[0]       | my_DE_stage/AR[0] |               17 |             32 |         1.88 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_11[0]      | my_DE_stage/AR[0] |               22 |             32 |         1.45 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_12[0]      | my_DE_stage/AR[0] |               20 |             32 |         1.60 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_13[0]      | my_DE_stage/AR[0] |               16 |             32 |         2.00 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_2[0]       | my_DE_stage/AR[0] |               15 |             32 |         2.13 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_3[0]       | my_DE_stage/AR[0] |               17 |             32 |         1.88 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_4[0]       | my_DE_stage/AR[0] |               14 |             32 |         2.29 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_5[0]       | my_DE_stage/AR[0] |               14 |             32 |         2.29 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_6[0]       | my_DE_stage/AR[0] |               17 |             32 |         1.88 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_7[0]       | my_DE_stage/AR[0] |               16 |             32 |         2.00 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_8[0]       | my_DE_stage/AR[0] |               20 |             32 |         1.60 |
-| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[40]_14[0]      | my_DE_stage/AR[0] |               13 |             32 |         2.46 |
-|  my_clock/inst/clk_out1 | my_FE_stage/p_0_in                        | my_DE_stage/AR[0] |               22 |             61 |         2.77 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_7        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_7        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_6        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_5        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_2        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_8        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_7        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_6        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_2        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_5        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_rep__1_1 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[10]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_5        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_6        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_6        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_6        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[57]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[57]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_7 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_3 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep_2    |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep_1    |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_7        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_5        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_2        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_rep__1_4 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_rep__1_3 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_2        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_2        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[57]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[57]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[56]_5        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[56]_4        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[56]_3        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[56]_2        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[56]_1        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[56]_0        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_2 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_1 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[54]_rep__1_2 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[59]_8        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_6 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_5 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[55]_rep__1_4 |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[58]_5        |                   |               32 |            128 |         4.00 |
-|  my_clock/inst/clk_out1 |                                           | my_DE_stage/AR[0] |              198 |            391 |         1.97 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_9[0]       | my_DE_stage/AR[0] |               22 |             32 |         1.45 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/E[0]                         | my_DE_stage/AR[0] |               12 |             32 |         2.67 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[174]_2[0]      | my_DE_stage/AR[0] |               11 |             32 |         2.91 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[174]_0[0]      | my_DE_stage/AR[0] |               10 |             32 |         3.20 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[174]_1[0]      | my_DE_stage/AR[0] |                6 |             32 |         5.33 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[174]_3[0]      | my_DE_stage/AR[0] |                9 |             32 |         3.56 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[175]_0[0]      | my_DE_stage/AR[0] |                9 |             32 |         3.56 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[175]_1[0]      | my_DE_stage/AR[0] |               10 |             32 |         3.20 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[175]_2[0]      | my_DE_stage/AR[0] |                9 |             32 |         3.56 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_0[0]       | my_DE_stage/AR[0] |               14 |             32 |         2.29 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_1[0]       | my_DE_stage/AR[0] |               18 |             32 |         1.78 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_11[0]      | my_DE_stage/AR[0] |               20 |             32 |         1.60 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_10[0]      | my_DE_stage/AR[0] |               19 |             32 |         1.68 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_8[0]       | my_DE_stage/AR[0] |               24 |             32 |         1.33 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_7[0]       | my_DE_stage/AR[0] |               22 |             32 |         1.45 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_6[0]       | my_DE_stage/AR[0] |               25 |             32 |         1.28 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_5[0]       | my_DE_stage/AR[0] |               14 |             32 |         2.29 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_4[0]       | my_DE_stage/AR[0] |               16 |             32 |         2.00 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_2[0]       | my_DE_stage/AR[0] |               13 |             32 |         2.46 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_15[0]      | my_DE_stage/AR[0] |               12 |             32 |         2.67 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_14[0]      | my_DE_stage/AR[0] |               15 |             32 |         2.13 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_13[0]      | my_DE_stage/AR[0] |               11 |             32 |         2.91 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_12[0]      | my_DE_stage/AR[0] |               20 |             32 |         1.60 |
+| ~my_clock/inst/clk_out1 | my_MEM_stage/MEM_latch_reg[73]_3[0]       | my_DE_stage/AR[0] |               12 |             32 |         2.67 |
+|  my_clock/inst/clk_out1 | my_DE_stage/E[0]                          | my_DE_stage/AR[0] |               23 |             93 |         4.04 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep_3    |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_7        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_1        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_0        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_rep__1_3 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep_4    |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_0 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_1 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_2 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_3 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_4 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_5 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[88]_rep__1_6 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[89]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_rep__1_1 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[90]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[90]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[89]_7        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[89]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[89]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[89]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[89]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_10       |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_1        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_0        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[43]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[90]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[90]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_8        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[90]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_7        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_rep__1_0 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_4        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_1        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_0        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[91]_9        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_6        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_7        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_9        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_8        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_5        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_11       |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_3        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[92]_2        |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 | my_AGEX_stage/AGEX_latch_reg[87]_rep__1_2 |                   |               32 |            128 |         4.00 |
+|  my_clock/inst/clk_out1 |                                           | my_DE_stage/AR[0] |              248 |            530 |         2.14 |
 +-------------------------+-------------------------------------------+-------------------+------------------+----------------+--------------+
 
 

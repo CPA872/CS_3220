@@ -41,12 +41,18 @@ module AGEX_STAGE(
     reg  [`DBITS-1:0]             aluout_AGEX; 
     wire [`REGNOBITS-1:0]         wregno_AGEX;
     wire [`DBITS-1:0]             pctarget_AGEX; 
-    wire [ `BUS_CANARY_WIDTH-1:0] bus_canary_AGEX; 
+    wire [`BUS_CANARY_WIDTH-1:0]  bus_canary_AGEX; 
 
     wire                          wr_1rd_0rs_AGEX;    // writes to 1(rd), 0(rt), NOT USED
 
-// branch target needs to be computed here 
-// computed branch target needs to send to other pipeline stages
+// ======================= Branch Prediction Control =================
+    wire                          flush_AGEX;
+    wire                          pc_pred_taken_AGEX;       // taken prediction from BTB
+    wire [`DBITS-1:0]             pc_pred_AGEX;             // predicted PC from BTB
+
+
+    // Misprediction 
+    assign flush_AGEX = is_br_AGEX && ((pc_pred_taken_AGEX != br_cond_AGEX) || (pc_pred_AGEX != pctarget_AGEX));
 
     assign {
             inst_AGEX,
@@ -65,6 +71,8 @@ module AGEX_STAGE(
             wr_reg_AGEX,
             wregno_AGEX, 
 
+            pc_pred_taken_AGEX,
+            pc_pred_AGEX,
 
                   // more signals might need
             bus_canary_AGEX
@@ -124,7 +132,6 @@ module AGEX_STAGE(
         	aluout_AGEX = regval1_AGEX ^ sxt_imm_AGEX;
         else if(op1_AGEX == `OP1_JAL)  // JAL: [ Rt = PC+4, PC = Rs + 4sxt(Imm) ]
             aluout_AGEX = PC_AGEX + 4; 
-        // add OP1_JAL case 
         else
         	aluout_AGEX = {`DBITS{1'b0}};
     end
@@ -141,6 +148,8 @@ module AGEX_STAGE(
             wr_mem_AGEX,
             wr_reg_AGEX,
             wregno_AGEX,
+            br_cond_AGEX,
+            pctarget_AGEX,
                    // more signals might need
     // ===== stall detection =========
             wr_1rd_0rs_AGEX,
@@ -153,22 +162,24 @@ module AGEX_STAGE(
     assign from_AGEX_to_FE = {
         br_cond_AGEX,
         pctarget_AGEX,
+        flush_AGEX,
         bus_canary_AGEX
     };
 
     assign from_AGEX_to_DE = {
         wr_reg_AGEX,
         wr_1rd_0rs_AGEX,  
-        wregno_AGEX
+        wregno_AGEX,
+        aluout_AGEX,
+        rd_mem_AGEX,
+        flush_AGEX
     };
 
  
     always @ (posedge clk or posedge reset) begin
         if (reset) begin
             AGEX_latch <= {`AGEX_latch_WIDTH{1'b0}};
-            // might need more code here  
-        // end else if (br_cond_AGEX) begin
-        //     AGEX_latch <= {32'h00000000};
+
         end else begin
             // need to complete 
             AGEX_latch <= AGEX_latch_contents ;

@@ -22,14 +22,39 @@ module WB_STAGE(
     wire [`DBITS-1:0]    wr_reg_val_WB;   
     wire [`DBITS-1:0]    aluout_WB;   
 
+
     wire wr_mem_WB;
     wire wr_reg_WB;
     wire [`REGNOBITS-1:0] wregno_WB;
     wire [`BUS_CANARY_WIDTH-1:0] bus_canary_WB;
     wire [`from_WB_to_DE_WIDTH-1:0] WB_latch_contents;
 
+
     reg [23:0] HEX_out; 
     reg [ 9:0] LEDR_out; 
+
+
+// for BTB update in FE stage
+    wire              update_BTB_WB;
+    wire [2:0]        update_BTB_index_WB;
+    wire [`DBITS:0]   new_BTB_entry_WB;
+    wire              br_cond_WB;
+    wire [`DBITS-1:0] pctarget_WB;
+
+    wire [5:0]        op1_WB;       
+    wire              is_branch_WB; 
+
+
+    assign op1_WB              = inst_WB[31:26];
+    assign is_branch_WB        = (op1_WB == 6'b001000 || op1_WB == 6'b001001 || op1_WB == 6'b001010 || op1_WB == 6'b001011);
+    assign update_BTB_WB       = is_branch_WB;
+    assign update_BTB_index_WB = PC_WB[4:2];
+
+    assign new_BTB_entry_WB    = {
+        br_cond_WB,
+        pctarget_WB
+    };
+
 
 /* HEX0, HEX1 are completed for you.  */ 
     always @ (posedge clk or posedge reset) begin
@@ -43,9 +68,9 @@ module WB_STAGE(
     assign HEX1 = HEX_out[7:4];    
 
     always @ (posedge clk or posedge reset) begin
-        if(reset)
+        if (reset)
             LEDR_out <= 10'b0011111111;
-        else if(wr_mem_WB && (memaddr_WB == `ADDRLEDR))
+        else if (wr_mem_WB && (memaddr_WB == `ADDRLEDR))
             LEDR_out <= regval2_WB[`LEDRBITS-1:0];
     end
 
@@ -68,12 +93,13 @@ module WB_STAGE(
         wregno_WB,    
         // more signals might need     
         aluout_WB,
+        br_cond_WB,
+        pctarget_WB,
 
         bus_canary_WB 
     } = from_MEM_latch; 
         
     // write register by sending data to the DE stage 
-
     assign from_WB_to_DE = {
         wr_reg_WB,
         wregno_WB,
@@ -81,14 +107,11 @@ module WB_STAGE(
         bus_canary_WB
     };
 
-    // **TODO: Write the code for LEDR here
-
-    always @ (posedge clk or posedge reset) begin
-        // this code need to be completed 
-
-    end  // end always
-
+    assign from_WB_to_FE = {
+        update_BTB_WB,
+        update_BTB_index_WB,
+        new_BTB_entry_WB
+    };
 
 
-
-endmodule 
+endmodule

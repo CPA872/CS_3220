@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Sun Mar 28 18:44:24 2021
+| Date             : Wed Apr 14 16:25:34 2021
 | Host             : T460p running 64-bit Ubuntu 20.04.2 LTS
 | Command          : report_power -file project3_frame_power_routed.rpt -pb project3_frame_power_summary_routed.pb -rpx project3_frame_power_routed.rpx
 | Design           : project3_frame
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.230        |
+| Total On-Chip Power (W)  | 0.245        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.125        |
-| Device Static (W)        | 0.104        |
+| Dynamic (W)              | 0.141        |
+| Device Static (W)        | 0.105        |
 | Effective TJA (C/W)      | 11.5         |
-| Max Ambient (C)          | 82.3         |
-| Junction Temperature (C) | 27.7         |
+| Max Ambient (C)          | 82.2         |
+| Junction Temperature (C) | 27.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,19 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.019 |        8 |       --- |             --- |
-| Slice Logic              |    <0.001 |    17810 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     1806 |     53200 |            3.39 |
-|   CARRY4                 |    <0.001 |       54 |     13300 |            0.41 |
-|   Register               |    <0.001 |     1013 |    106400 |            0.95 |
-|   F7/F8 Muxes            |    <0.001 |     6560 |     53200 |           12.33 |
+| Clocks                   |     0.021 |        8 |       --- |             --- |
+| Slice Logic              |     0.006 |    18889 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     2209 |     53200 |            4.15 |
 |   LUT as Distributed RAM |    <0.001 |     8192 |     17400 |           47.08 |
+|   CARRY4                 |    <0.001 |       57 |     13300 |            0.43 |
+|   F7/F8 Muxes            |    <0.001 |     6776 |     53200 |           12.74 |
+|   Register               |    <0.001 |     1440 |    106400 |            1.35 |
 |   Others                 |     0.000 |        8 |       --- |             --- |
-| Signals                  |    <0.001 |     4326 |       --- |             --- |
+| Signals                  |     0.008 |     4951 |       --- |             --- |
 | MMCM                     |     0.106 |        1 |         4 |           25.00 |
 | I/O                      |    <0.001 |       30 |       125 |           24.00 |
-| Static Power             |     0.104 |          |           |                 |
-| Total                    |     0.230 |          |           |                 |
+| Static Power             |     0.105 |          |           |                 |
+| Total                    |     0.245 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.028 |       0.020 |      0.008 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.043 |       0.035 |      0.008 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.069 |       0.059 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -152,14 +152,16 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+----------------+-----------+
-| Name           | Power (W) |
-+----------------+-----------+
-| project3_frame |     0.125 |
-|   my_DE_stage  |     0.002 |
-|   my_MEM_stage |     0.016 |
-|   my_clock     |     0.107 |
-|     inst       |     0.107 |
-+----------------+-----------+
++-----------------+-----------+
+| Name            | Power (W) |
++-----------------+-----------+
+| project3_frame  |     0.141 |
+|   my_AGEX_stage |     0.002 |
+|   my_DE_stage   |     0.006 |
+|   my_FE_stage   |     0.007 |
+|   my_MEM_stage  |     0.019 |
+|   my_clock      |     0.107 |
+|     inst        |     0.107 |
++-----------------+-----------+
 
 
